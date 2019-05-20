@@ -1,0 +1,10 @@
+[
+{product: "Café de olla",
+price: 5},
+{product: "Capuccino latte",
+price: 7 },
+{product: "Jugos de fruta",
+price: 7 },
+{product: "Sandwich de calabacita", 
+price: 10}
+];

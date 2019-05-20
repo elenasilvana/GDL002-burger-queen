@@ -1,0 +1,18 @@
+[
+{product: "Hamburguesa Simple",
+price: 10},
+{product: "Hamburguesa Doble",
+price: 15},
+{product: "Papas fritas",
+price: 5},
+{product: "Aros de Cebolla", 
+price: 5},
+{product: "Agua 500ml",
+price: 5},
+{product: "Agua 750ml",
+price: 7},
+{product: "Refresco 500ml",
+price: 7},
+{product: "Refresco 750ml",
+price: 10}
+]
