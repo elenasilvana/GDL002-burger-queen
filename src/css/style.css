@@ -13,8 +13,8 @@ code{
 }
 
 .App {
-	background-color: #fff;
-	max-width: 992px;
+	background-color: #ffff;
+	max-width: 29px;
 	margin: auto;
 }
 
@@ -28,4 +28,23 @@ nav {
 .nav-menu li {
 	display: inline-block;
 	list-style: none;
+}
+
+.container {
+	margin:auto;
+	display: -webkit-flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.cardFood-container {
+	display: inline-block;
+	text-align: center;
+}
+
+.food-image {
+	width: 250px;
+	height: 250px;
+	background-size: cover;
+
 }
