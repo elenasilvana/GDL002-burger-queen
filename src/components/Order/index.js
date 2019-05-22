@@ -1,5 +1,6 @@
 import React from 'react';
 import {BreakfastMenu} from '../../data/breakfastmenu';
+import NavigationButton from '../NavigationButton';
 
 //buscar card clickeable
 const Order = (props) => { 
@@ -18,9 +19,15 @@ const Order = (props) => {
 	});
 
 	return (
+	<container>
 		<div className="container">
 			{breakfast}
 		</div>
+		<div>
+			<NavigationButton route={'/menu'} name={'Tomar Orden'} />
+			<NavigationButton route={'/order'} name={'Entregar Orden'} />
+		</div>
+	</container>
 
 	)
 };

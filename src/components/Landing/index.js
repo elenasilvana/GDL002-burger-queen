@@ -1,6 +1,6 @@
 import React from 'react';
 import LogoBq from '../LogoBq';
-//import Button from '../Button';
+import NavigationButton from '../NavigationButton';
 
 
 const Landing = () => (
@@ -10,11 +10,9 @@ const Landing = () => (
 			<LogoBq />
 		</div>
 		<div>
-			<button>Mesero</button>
-			<button>Cocina</button>
-			<button>Administrador</button>
-			
-			
+			<NavigationButton route={'/order'} name={'Mesero'} />
+			<NavigationButton route={'/'} name={'Cocina'} />
+			<NavigationButton route={'/'} name={'Administrador'} />
 		</div>
 
 	</div>
