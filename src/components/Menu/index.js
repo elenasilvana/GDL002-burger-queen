@@ -1,6 +1,7 @@
 import React from 'react';
 import {NormalMenu} from '../../data/normalmenu';
-
+import Nav from 'react-bootstrap/Nav';
+import NavMenu from '../NavMenu';
 
 const Menu = (props) => { 
 
@@ -18,10 +19,15 @@ const Menu = (props) => {
 	});
 
 	return (
+
+	<container>
+		<NavMenu />
 		<div className="container">
 			{normal}
 		</div>
+	</container>
 
 	)
 };
+
 export default Menu;
