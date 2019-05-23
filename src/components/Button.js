@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
+import Button from 'react-bootstrap/Button';
 
 
-class Button extends Component {
+class Buttons extends Component {
 
 	render() {
 
 	  return (
-	    <button
+	    <button variant="light" size="lg"
 	      onClick={this.props.action}
 	    >
 	      {this.props.name}
@@ -16,4 +17,4 @@ class Button extends Component {
 	}
 };
 
-export default Button;
+export default Buttons;
