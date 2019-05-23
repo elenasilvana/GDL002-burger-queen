@@ -13,22 +13,9 @@ code{
 }
 
 .App {
-	display: none;
-	background-color: #ffff;
+	display: none;	background-color: #ffff;
 	max-width: 29px;
 	margin: auto;
-}
-
-nav {
-	display: flex;
-	justify-content: space-between;
-	border-bottom: 1px solid grey;
-	background-color: orange;
-	padding: 10px 20px;
-}
-.nav-menu li {
-	display: inline-block;
-	list-style: none;
 }
 
 .container {
