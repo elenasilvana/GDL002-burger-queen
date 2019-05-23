@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
 
-/*
+
 class Button extends Component {
 
 	render() {
 
 	  return (
 	    <button
-	      className={`Button Button-primary ${props.extraClassName ? props.extraClassName : ''}`}
-	      onClick={props.action}
+	      onClick={this.props.action}
 	    >
-	      {props.name}
+	      {this.props.name}
 	    </button>
 	  );
 
@@ -18,4 +17,3 @@ class Button extends Component {
 };
 
 export default Button;
-*/
