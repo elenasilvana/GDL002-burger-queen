@@ -1,27 +1,24 @@
 import React from 'react';
 import {BreakfastMenu} from '../../data/breakfastmenu';
 import NavigationButton from '../NavigationButton';
+import Buttons from '../Button';
+//import {BreakfastMenu} from '../../data/breakfastmenu';
+import ShowMenu from '../ShowMenu';
 
 //buscar card clickeable
 const Order = (props) => { 
 
-	let breakfast = BreakfastMenu.map((product) => {
-
-	return (
-		<div className="cardFood-container">
-			<a>
-				<div className="food-image" style={{backgroundImage: "url(" + product.img + ")"}}></div>
-			</a>
-			<button>{product.product}</button>
-			<h2>${product.price}</h2>
-		</div>
-		) 
-	});
+	let breakfast = BreakfastMenu
 
 	return (
 	<container>
 		<div className="container">
-			{breakfast}
+			{breakfast.map(food => (
+			<ShowMenu
+			img={food.img} 
+			product={food.product} 
+			price={food.price} />
+				))}
 		</div>
 		<div>
 			<NavigationButton route={'/menu'} name={'Tomar Orden'} />
