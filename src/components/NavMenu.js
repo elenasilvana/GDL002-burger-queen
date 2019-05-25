@@ -7,7 +7,7 @@ class NavMenu extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      key: 'home',
+      key: 'menu desayuno',
     };
   }
 
@@ -18,11 +18,11 @@ class NavMenu extends React.Component {
         activeKey={this.state.key}
         onSelect={key => this.setState({ key })}
       >
-        <Tab eventKey="Menu Desayuno" title="Desayuno">
-          <h1>lala</h1>
+        <Tab eventKey="menu desayuno" title="Desayuno">
+          lala
         </Tab>
-        <Tab eventKey="Menu Normal" title="Normal">
-           <h1>lolo</h1>
+        <Tab eventKey="menu normal" title="Normal">
+          lolo
         </Tab>
       </Tabs>
     );
