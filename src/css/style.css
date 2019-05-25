@@ -18,7 +18,7 @@ code{
 	margin: auto;
 }
 
-.container {
+.card-container {
 	margin:auto;
 	display: -webkit-flex;
 	justify-content: space-around;
@@ -35,4 +35,8 @@ code{
 	height: 250px;
 	background-size: cover;
 
+}
+
+.comanda-container {
+	background-color: #ffff;
 }

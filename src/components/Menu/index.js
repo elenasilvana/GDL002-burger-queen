@@ -9,6 +9,7 @@ import Tab from 'react-bootstrap/Tab';
 //components
 import ShowMenu from '../ShowMenu';
 import NavMenu from '../NavMenu';
+import Comanda from '../Comanda';
 
 
 //const Menu = (props) => { 
@@ -28,6 +29,11 @@ class Menu extends Component {
 this.setState()
 this.state.breakfast=BreakfastMenu;
 this.state.normal = NormalMenu;
+<Row>
+    <Col xs={6}>aqui van las cards</Col>
+    <Col xs={6}>aqui va la comanda</Col>
+  </Row>
+
 */
 
 	//console.log(this.state.breakfast);
@@ -40,26 +46,32 @@ this.state.normal = NormalMenu;
 		return (
 			<container>
 				<Tabs defaultActiveKey="normalMenu" id="uncontrolled-tab-example">
-				  <Tab eventKey="breakfastMenu" title="barrafija">
-				  	<div className="container">
-						 {BreakfastMenu.map(food => (
-						<ShowMenu
-						img={food.img} 
-						product={food.product} 
-						price={food.price} />
-							)) } 
-					</div>
-				  </Tab>
-				  <Tab eventKey="normalMenu" title="barrafija2">
-				    <div className="container">
+				  <Tab eventKey="breakfastMenu" title="Desayuno">
+				  <div className= "row">
+					  	<div className="card-container col-md-6">
+							 {BreakfastMenu.map(food => (
+							<ShowMenu
+							img={food.img} 
+							product={food.product} 
+							price={food.price} />
+								)) } 
+						</div>
+						<Comanda />
+				  </div>
 
-						{NormalMenu.map(food => (
-						<ShowMenu
-						img={food.img} 
-						product={food.product} 
-						price={food.price} />
-							))}
-					</div>
+				  </Tab>
+				  <Tab eventKey="normalMenu" title="Normal">
+				   <div className= "row">
+					  	<div className="card-container col-md-6">
+							 {NormalMenu.map(food => (
+							<ShowMenu
+							img={food.img} 
+							product={food.product} 
+							price={food.price} />
+								)) } 
+						</div>
+						<Comanda />
+				  </div>
 				  </Tab>
 				</Tabs>	
 			</container>

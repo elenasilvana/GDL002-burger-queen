@@ -3,11 +3,15 @@ import Buttons from './Button';
 
 //aquí debería estar el componente de la comanda 
 
-export class Comanda extends Component {
+class Comanda extends Component {
 	render(){
 		return(
-			<h1>{this.props.meal}</h1>
-			<Button action={()=>{console.log('boton de la orden')}} name={'Enviar Orden'} />
+			<div className="comanda-container col-md-6">
+				<h1>aqui aparecerá la comanda</h1>
+				<Buttons action={()=>{console.log('boton de la orden')}} name={'Enviar Orden'} />
+			</div>
 			)
 	}
 }
+
+export default Comanda;
