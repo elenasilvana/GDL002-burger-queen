@@ -9,8 +9,8 @@ import NavigationButton from '../NavigationButton';
 
 const SelectUser = () => (
 	<div>
-	<NavMenu />
-	<NavigationButton route={'/'} name={'Continuar'} />
+		<NavMenu />
+		<NavigationButton route={'/'} name={'Continuar'} />
 	</div>
 
 
