@@ -39,4 +39,5 @@ code{
 
 .comanda-container {
 	background-color: #ffff;
+	justify-content: space-around;
 }

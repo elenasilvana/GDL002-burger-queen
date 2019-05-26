@@ -8,38 +8,29 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 //components
 import ShowMenu from '../ShowMenu';
-import NavMenu from '../NavMenu';
+//import NavMenu from '../NavMenu';
 import Comanda from '../Comanda';
+//import ClientName from '../ClientName';
 
 
-//const Menu = (props) => { 
 class Menu extends Component {
-	constructor(props){
-		super(props);
-		this.state={
+
+		state={
 			breakfast: null,
 			normal: null,
+			order: []
 		}
-	} 
 
-	//let normal = NormalMenu;
+addItem = (product, price) => {
+	const newOrder = {
+		product: product,
+		price: price,
+	}
+	this.setState({
+		order: [...this.state.order, newOrder]
+	})
+};
 
-
-	/*
-this.setState()
-this.state.breakfast=BreakfastMenu;
-this.state.normal = NormalMenu;
-<Row>
-    <Col xs={6}>aqui van las cards</Col>
-    <Col xs={6}>aqui va la comanda</Col>
-  </Row>
-
-*/
-
-	//console.log(this.state.breakfast);
-	//BreakfastMenu;
-
-				//<NavMenu breakfast={this.state.breakfast} normal={this.state.normal}  />
 	render() {
 
 
@@ -53,7 +44,9 @@ this.state.normal = NormalMenu;
 							<ShowMenu
 							img={food.img} 
 							product={food.product} 
-							price={food.price} />
+							price={food.price} 
+							action={this.addItem}
+							/>
 								)) } 
 						</div>
 						<Comanda />
@@ -65,6 +58,7 @@ this.state.normal = NormalMenu;
 					  	<div className="card-container col-md-6">
 							 {NormalMenu.map(food => (
 							<ShowMenu
+							key={food.id}
 							img={food.img} 
 							product={food.product} 
 							price={food.price} />
