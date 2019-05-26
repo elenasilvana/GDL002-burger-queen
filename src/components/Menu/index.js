@@ -21,18 +21,23 @@ class Menu extends Component {
 			order: []
 		}
 
+
 addItem = (product, price) => {
-	const newOrder = {
-		product: product,
-		price: price,
+	return () => {
+
+		  const newOrder = {
+			product: product,
+			price: price,
+		}
+		this.setState({
+			order: [...this.state.order, newOrder]
+		})
+		console.log(this.state.order);
 	}
-	this.setState({
-		order: [...this.state.order, newOrder]
-	})
 };
 
 	render() {
-
+console.log(this.state.order);
 
 		return (
 			<container>
@@ -45,7 +50,7 @@ addItem = (product, price) => {
 							img={food.img} 
 							product={food.product} 
 							price={food.price} 
-							action={this.addItem}
+							action={this.addItem(food.product, food.price)}
 							/>
 								)) } 
 						</div>
