@@ -15,29 +15,31 @@ import Comanda from '../Comanda';
 
 class Menu extends Component {
 
-		state={
+	constructor() {
+		super();
+		this.state = {
 			breakfast: null,
 			normal: null,
 			order: []
 		}
-
-
-addItem = (product, price) => {
-	return () => {
-
-		  const newOrder = {
-			product: product,
-			price: price,
-		}
-		this.setState({
-			order: [...this.state.order, newOrder]
-		})
-		console.log(this.state.order);
+		this.addItem = this.addItem.bind(this)
 	}
-};
 
-	render() {
-console.log(this.state.order);
+	addItem(e) {
+		console.log(e.target.innerHTML, e.target.dataset.price)
+
+		const nOrder = {
+				product: e.target.innerHTML,
+				price: e.target.dataset.price
+
+			}
+		this.setState({
+				order: [...this.state.order, nOrder]
+		}, ()=> console.log(this.state));
+
+	}
+		render() {
+		console.log(this.state.order);
 
 		return (
 			<container>
@@ -45,31 +47,35 @@ console.log(this.state.order);
 				  <Tab eventKey="breakfastMenu" title="Desayuno">
 				  <div className= "row">
 					  	<div className="card-container col-md-6">
-							 {BreakfastMenu.map(food => (
+							 {BreakfastMenu.map((food, index) => (
 							<ShowMenu
+							key={index}
 							img={food.img} 
 							product={food.product} 
 							price={food.price} 
-							action={this.addItem(food.product, food.price)}
+							addItem={this.addItem}
 							/>
 								)) } 
 						</div>
-						<Comanda />
+						{this.state.order ? <Comanda order={this.state.order}/> : <Comanda /> }
+						
 				  </div>
 
 				  </Tab>
 				  <Tab eventKey="normalMenu" title="Normal">
 				   <div className= "row">
 					  	<div className="card-container col-md-6">
-							 {NormalMenu.map(food => (
+							 {NormalMenu.map((food, index) => (
 							<ShowMenu
-							key={food.id}
+							key={index}
 							img={food.img} 
 							product={food.product} 
-							price={food.price} />
+							price={food.price}
+							addItem={this.addItem} 
+							/>
 								)) } 
 						</div>
-						<Comanda />
+						{this.state.order ? <Comanda order={this.state.order}/> : <Comanda /> }
 				  </div>
 				  </Tab>
 				</Tabs>	
