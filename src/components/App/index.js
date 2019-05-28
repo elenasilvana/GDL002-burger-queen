@@ -1,6 +1,6 @@
 import React from 'react';
 //import { BrowserRouter as Router, Route, } from 'react-router-dom';
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 
 import Navigation from '../Navigation';
@@ -16,11 +16,12 @@ const App = () => (
 		<Navigation />
 
 		<hr />
+	<Switch>
 		<Route exact path={ROUTES.LANDING} component={LandingPage} />
 		<Route exact path={ROUTES.SELECTUSER} component={SelectUserPage} />
 		<Route exact path={ROUTES.ORDER} component={OrderPage} />
 		<Route exact path={ROUTES.MENU} component={MenuPage} />
-
+	</Switch>
 	</Router>
 	);
 
