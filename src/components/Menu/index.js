@@ -14,32 +14,67 @@ import Comanda from '../Comanda';
 
 
 class Menu extends Component {
+	arrOrden = []; 
 
 	constructor() {
 		super();
 		this.state = {
 			breakfast: null,
 			normal: null,
-			order: []
+			//to save the order
+			order: this.arrOrden,
+			//to save the client name
+			clientname: null,
+			total: 0,
 		}
-		this.addItem = this.addItem.bind(this)
+		this.addItem = this.addItem.bind(this);
+		this.delete = this.delete.bind(this);
 	}
 
+	//update order state to send to the comanda component
 	addItem(e) {
-		console.log(e.target.innerHTML, e.target.dataset.price)
 
-		const nOrder = {
+		console.log(e.target.innerHTML, e.target.dataset.price);
+		const cost = parseInt(e.target.dataset.price);
+
+		//generates a new object when button is clicked
+		this.arrOrden.push({
+
 				product: e.target.innerHTML,
-				price: e.target.dataset.price
+				price: cost,
+				//total: result
 
-			}
+			});
+		//update this.state.order with the values
 		this.setState({
-				order: [...this.state.order, nOrder]
-		}, ()=> console.log(this.state));
+				order: this.arrOrden,
+				total: this.state.total + cost
+		}, () => console.log(this.state));
+
 
 	}
+
+	delete(e){
+		//product, i
+		e.preventDefault(e)
+		console.log('target!!', e.target.innerHTML)
+	//debugger;
+		//this.state.order.forEach((order)=> {
+			//if(order.product == product){
+				//this.state.order.splice(i);
+			//}
+			//this.setState({
+				//state: this.state
+			//})
+		//})
+	}
+
+	
+
+	
+
 		render() {
-		console.log(this.state.order);
+		//console.log(this.state.total);
 
 		return (
 			<container>
@@ -56,8 +91,9 @@ class Menu extends Component {
 							addItem={this.addItem}
 							/>
 								)) } 
+							
 						</div>
-						{this.state.order ? <Comanda order={this.state.order}/> : <Comanda /> }
+						{this.state.order ? <Comanda order={this.state.order} total={this.state.total} delete={this.delete}/> : <Comanda /> }
 						
 				  </div>
 
@@ -75,7 +111,7 @@ class Menu extends Component {
 							/>
 								)) } 
 						</div>
-						{this.state.order ? <Comanda order={this.state.order}/> : <Comanda /> }
+						{this.state.order ? <Comanda order={this.state.order} total={this.state.total}/> : <Comanda /> }
 				  </div>
 				  </Tab>
 				</Tabs>	
