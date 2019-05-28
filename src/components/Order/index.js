@@ -12,9 +12,9 @@ const Order = (props) => {
 	return (
 	<container>
 		<div>
-			<NavigationButton route={'/#menu'} name={'Tomar Orden'} />
-			<Link to={ROUTES.MENU}> Tomar Orden </Link>
-			<NavigationButton route={'/#order'} name={'Entregar Orden'} />
+			
+			<Link className="btn btn-outline-secondary btn-lg" to={ROUTES.MENU}> Tomar Orden </Link>
+			
 		</div>
 	</container>
 

@@ -13,7 +13,8 @@ code{
 }
 
 .App {
-	display: block;	background-color: #ffff;
+	display: none;	
+	background-color: #ffff;
 	max-width: 29px;
 	margin: auto;
 }

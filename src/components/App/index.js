@@ -15,7 +15,6 @@ const App = () => (
 	<HashRouter basename="GDL002-burger-queen/">	
 		<Navigation />
 
-		<hr />
 	<Switch>
 		<Route exact path={ROUTES.LANDING} component={LandingPage} />
 		<Route path={ROUTES.SELECTUSER} component={SelectUserPage} />
