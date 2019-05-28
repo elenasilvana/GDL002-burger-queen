@@ -10,9 +10,9 @@ const Landing = () => (
 			<LogoBq />
 		</div>
 		<div>
-			<NavigationButton route={'/order'} name={'Mesero'} />
-			<NavigationButton route={'/'} name={'Cocina'} />
-			<NavigationButton route={'/'} name={'Administrador'} />
+			<NavigationButton route={'/#order'} name={'Mesero'} />
+			<NavigationButton route={'/#'} name={'Cocina'} />
+			<NavigationButton route={'/#'} name={'Administrador'} />
 		</div>
 
 	</div>

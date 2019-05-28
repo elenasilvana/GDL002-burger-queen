@@ -1,6 +1,6 @@
 import React from 'react';
 //import { BrowserRouter as Router, Route, } from 'react-router-dom';
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
 
 import Navigation from '../Navigation';
@@ -12,17 +12,18 @@ import MenuPage from '../Menu';
 import * as ROUTES from '../../constants/routes';
 
 const App = () => (
-	<Router>
+	<HashRouter basename="GDL002-burger-queen/">	
 		<Navigation />
 
 		<hr />
 	<Switch>
 		<Route exact path={ROUTES.LANDING} component={LandingPage} />
-		<Route exact path={ROUTES.SELECTUSER} component={SelectUserPage} />
-		<Route exact path={ROUTES.ORDER} component={OrderPage} />
-		<Route exact path={ROUTES.MENU} component={MenuPage} />
+		<Route path={ROUTES.SELECTUSER} component={SelectUserPage} />
+		<Route path={ROUTES.ORDER} component={OrderPage} />
+		<Route path={ROUTES.MENU} component={MenuPage} />
 	</Switch>
-	</Router>
+	</HashRouter>
+
 	);
 
 export default App; 

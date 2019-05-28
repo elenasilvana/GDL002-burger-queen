@@ -10,8 +10,8 @@ const Order = (props) => {
 	return (
 	<container>
 		<div>
-			<NavigationButton route={'/menu'} name={'Tomar Orden'} />
-			<NavigationButton route={'/order'} name={'Entregar Orden'} />
+			<NavigationButton route={'/#menu'} name={'Tomar Orden'} />
+			<NavigationButton route={'/#order'} name={'Entregar Orden'} />
 		</div>
 	</container>
 

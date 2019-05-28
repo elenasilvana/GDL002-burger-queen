@@ -2,7 +2,6 @@
   "name": "gdl002-burger-queen",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://elenasilvana.github.io/GDL002-burger-queen",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "gh-pages": "^2.0.1",
@@ -46,6 +45,6 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/elenasilvana/GDL002-burger-queen/issues"
-  }
-  
+  },
+  "homepage": "https://elenasilvana.github.io/GDL002-burger-queen"
 }
