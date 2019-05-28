@@ -12,12 +12,11 @@ render(){
 				<a>
 					<div className="food-image" style={{backgroundImage: "url(" + this.props.img + ")"}}></div>
 				</a>
-				<button 
+				<Button variant="secondary" size="lg"
 				onClick={this.props.addItem}
 				data-price={this.props.price}
-				>{this.props.product}</button>
+				>{this.props.product}</Button>
 				<h2>${this.props.price}</h2>
-				<h3>Index {this.props.key}</h3>
 			</div>
 			
 		);
