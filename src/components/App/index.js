@@ -17,9 +17,9 @@ const App = () => (
 
 		<hr />
 		<Route exact path={ROUTES.LANDING} component={LandingPage} />
-		<Route path={ROUTES.SELECTUSER} component={SelectUserPage} />
-		<Route path={ROUTES.ORDER} component={OrderPage} />
-		<Route path={ROUTES.MENU} component={MenuPage} />
+		<Route exact path={ROUTES.SELECTUSER} component={SelectUserPage} />
+		<Route exact path={ROUTES.ORDER} component={OrderPage} />
+		<Route exact path={ROUTES.MENU} component={MenuPage} />
 
 	</Router>
 	);
