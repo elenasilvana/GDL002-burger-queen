@@ -5,13 +5,38 @@ import Table from 'react-bootstrap/Table'
 //aquí debería estar el componente de la comanda 
 
 class Comanda extends Component {
+	constructor(){
+		super();
+		this.state={
+			clientname: "",
+
+		}
+
+	this.inputName = React.createRef();
+	}
+
+	addName = () => {
+		let addname = this.inputName.current.value;
+		addname = addname.toString();
+
+		this.setState({clientname: addname}, console.log(this.state.clientname))
+
+	}
+
+	//delete(e, product, i){
+		//product, i
+		//this.props.delete(e, i)
+	//}
+
+
+
+
 	render(){
 		return(
 			<div className="comanda-container col-md-6">
 			<Table responsive striped bordered hover>
 			  <thead>
 			    <tr>
-			      <th>#</th>
 			      <th>Comida</th>
 			      <th>Precio</th>
 			      <th>boton</th>
@@ -21,17 +46,23 @@ class Comanda extends Component {
 			  { 
 			  	this.props.order.map((line, index) => (
 				    <tr>
-				      <td>no. index</td>
 				      <td>{line.product}</td>
 				      <td>${line.price}</td>
-				      <td>boton de borrar</td>
+				      <td><input type="button" value="Eliminar" onClick={this.props.delete}/></td>
 				    </tr>
 
 			  	))}
+			  	<tr>
+			  		<td>Total</td>
+			  		<td>${this.props.total}</td>
+			  	</tr>
 
 			  </tbody>
 			</Table>
-				<Buttons action={()=>{console.log('boton de la orden')}} name={'Enviar Orden'} />
+				<textarea className="clientName" ref={this.inputName}>
+			  		introduce nombre del cliente
+				</textarea>
+				<Buttons action={()=>{this.addName()}} name={'Enviar Orden'} />
 			</div>
 			)
 	}
