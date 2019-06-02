@@ -13,7 +13,7 @@ render(){
 					<div className="food-image" style={{backgroundImage: "url(" + this.props.img + ")"}}></div>
 				</a>
 				<Button variant="secondary" size="lg"
-				onClick={this.props.addItem}
+				onClick={ () => { console.log('click', this.props);this.props.addItem(this.props.price, this.props.product) } }
 				data-price={this.props.price}
 				>{this.props.product}</Button>
 				<h2>${this.props.price}</h2>

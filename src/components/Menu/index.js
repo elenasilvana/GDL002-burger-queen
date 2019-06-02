@@ -27,47 +27,27 @@ class Menu extends Component {
 			clientname: null,
 			total: 0,
 		}
-		this.addItem = this.addItem.bind(this);
-		this.delete = this.delete.bind(this);
 	}
 
 	//update order state to send to the comanda component
-	addItem(e) {
-
-		console.log(e.target.innerHTML, e.target.dataset.price);
-		const cost = parseInt(e.target.dataset.price);
-
-		//generates a new object when button is clicked
-		this.arrOrden.push({
-
-				product: e.target.innerHTML,
-				price: cost,
-				//total: result
-
-			});
-		//update this.state.order with the values
+	addItem = (price, product) => {
+		const newOrderElement = {
+			product,
+			price,
+		}
 		this.setState({
-				order: this.arrOrden,
-				total: this.state.total + cost
-		}, () => console.log(this.state));
-
-
+			order: [...this.state.order, newOrderElement],
+			total: this.state.total + price,
+		})
 	}
 
-	delete(e){
-		//product, i
-		e.preventDefault(e)
-		console.log('target!!', e.target.innerHTML)
-	//debugger;
-		//this.state.order.forEach((order)=> {
-			//if(order.product == product){
-				//this.state.order.splice(i);
-			//}
-			//this.setState({
-				//state: this.state
-			//})
-		//})
+	delete = (price, product) => {
+		this.setState({
+			order: this.state.order.filter( (orderElement) => { return orderElement.product != product }),
+			total: this.state.total - price,
+		})
 	}
+
 
 	
 
@@ -84,13 +64,13 @@ class Menu extends Component {
 					  	<div className="card-container col-md-6">
 							 {BreakfastMenu.map((food, index) => (
 							<ShowMenu
-							key={index}
-							img={food.img} 
-							product={food.product} 
-							price={food.price} 
-							addItem={this.addItem}
+								key={index}
+								img={food.img} 
+								product={food.product} 
+								price={food.price} 
+								addItem={this.addItem}
 							/>
-								)) } 
+							)) } 
 							
 						</div>
 						{this.state.order ? <Comanda order={this.state.order} total={this.state.total} delete={this.delete}/> : <Comanda /> }
@@ -102,16 +82,16 @@ class Menu extends Component {
 				   <div className= "row">
 					  	<div className="card-container col-md-6">
 							 {NormalMenu.map((food, index) => (
-							<ShowMenu
-							key={index}
-							img={food.img} 
-							product={food.product} 
-							price={food.price}
-							addItem={this.addItem} 
-							/>
-								)) } 
+								<ShowMenu
+									key={index}
+									img={food.img} 
+									product={food.product} 
+									price={food.price}
+									addItem={this.addItem} 
+								/>
+							)) } 
 						</div>
-						{this.state.order ? <Comanda order={this.state.order} total={this.state.total}/> : <Comanda /> }
+						{this.state.order ? <Comanda order={this.state.order} total={this.state.total} onDelete={this.delete}/> : <Comanda /> }
 				  </div>
 				  </Tab>
 				</Tabs>	

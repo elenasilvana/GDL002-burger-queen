@@ -9,7 +9,6 @@ class Comanda extends Component {
 		super();
 		this.state={
 			clientname: "",
-
 		}
 
 	this.inputName = React.createRef();
@@ -48,7 +47,7 @@ class Comanda extends Component {
 				    <tr>
 				      <td>{line.product}</td>
 				      <td>${line.price}</td>
-				      <td><input type="button" value="Eliminar" onClick={this.props.delete}/></td>
+				      <td><input type="button" value="Eliminar" onClick={() => {this.props.onDelete(line.price, line.product)}}/></td>
 				    </tr>
 
 			  	))}
