@@ -5,14 +5,20 @@ import LogoBq from '../LogoBq';
 import NavMenu from '../NavMenu';
 import NavigationButton from '../NavigationButton';
 
+//probando firebaseContext
+import { FirebaseContext } from '../Firebase';
+
+
+
 	//<LogoBq />
 
 const SelectUser = () => (
-	<div>
-		<NavMenu />
-		<NavigationButton route={'/'} name={'Continuar'} />
-	</div>
 
+	<FirebaseContext.Consumer>
+		{firebase => {
+			return <div> estoy en firebase y rendereo algo </div>
+		}}
+	</FirebaseContext.Consumer>
 
 );
 
