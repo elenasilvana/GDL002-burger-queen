@@ -1,4 +1,5 @@
 import app from 'firebase/app';
+import 'firebase/database'; 
 
  // Your web app's Firebase configuration
  	const config = {
@@ -14,6 +15,9 @@ import app from 'firebase/app';
   class Firebase {
   	constructor() {
   		app.initializeApp(config);
+
+  		// Get a reference to the database service
+		this.database = app.database();
   	}
   }
 

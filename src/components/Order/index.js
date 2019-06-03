@@ -14,6 +14,8 @@ const Order = (props) => {
 		<div>
 			
 			<Link className="btn btn-outline-secondary btn-lg" to={ROUTES.MENU}> Tomar Orden </Link>
+
+			<button className="btn btn-outline-secondary btn-lg"> Entregar Orden </button>
 			
 		</div>
 	</container>

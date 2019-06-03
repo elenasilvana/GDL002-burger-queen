@@ -12,6 +12,8 @@ import ShowMenu from '../ShowMenu';
 import Comanda from '../Comanda';
 //import ClientName from '../ClientName';
 
+import firebase from '../Firebase/firebase';
+
 
 class Menu extends Component {
 	arrOrden = []; 
