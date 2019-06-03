@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/style.css';
-import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import { HashRouter } from 'react-router-dom'
 
+import App from './components/App';
+import Firebase, { FirebaseContext } from './components/Firebase';
+
+
 
 ReactDOM.render(
-	<App />, 
+	<FirebaseContext.Provider value={new Firebase()}>
+		<App /> 
+	</FirebaseContext.Provider>,
 	document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
