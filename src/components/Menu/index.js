@@ -43,7 +43,7 @@ class Menu extends Component {
 
 	delete = (price, product) => {
 		this.setState({
-			order: this.state.order.filter( (orderElement) => { return orderElement.product != product }),
+			order: this.state.order.filter( (orderElement) => { return orderElement.product !== product }),
 			total: this.state.total - price,
 		})
 	}
@@ -73,7 +73,7 @@ class Menu extends Component {
 							)) } 
 							
 						</div>
-						{this.state.order ? <Comanda order={this.state.order} total={this.state.total} delete={this.delete}/> : <Comanda /> }
+						{this.state.order ? <Comanda order={this.state.order} total={this.state.total} onDelete={this.delete}/> : <Comanda /> }
 						
 				  </div>
 
