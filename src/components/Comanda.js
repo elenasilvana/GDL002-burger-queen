@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import Buttons from './Button';
-import Table from 'react-bootstrap/Table'
+import Table from 'react-bootstrap/Table';
+import { withFirebase } from './Firebase';
+
+export const Lacomanda = withFirebase(Comanda);
 
 //aquí debería estar el componente de la comanda 
 
@@ -14,19 +17,27 @@ class Comanda extends Component {
 	this.inputName = React.createRef();
 	}
 
+	/*
 	addName = () => {
 		let addname = this.inputName.current.value;
 		addname = addname.toString();
 
 		this.setState({clientname: addname}, console.log(this.state.clientname))
 
+	}*/
+
+	sendOrder = () => {
+
+		let addname = this.inputName.current.value;
+		addname = addname.toString();
+
+		this.setState({clientname: addname}, console.log(this.state.clientname))
+		//voy a agregar nombre
+		this.props.firebase.orders().push({
+			clientname: this.state.addname
+		});
+
 	}
-
-	//delete(e, product, i){
-		//product, i
-		//this.props.delete(e, i)
-	//}
-
 
 
 
@@ -61,10 +72,11 @@ class Comanda extends Component {
 				<textarea className="clientName" ref={this.inputName}>
 			  		introduce nombre del cliente
 				</textarea>
-				<Buttons action={()=>{this.addName()}} name={'Enviar Orden'} />
+				<Buttons action={()=>{this.sendOrder()}} name={'Enviar Orden'} />
 			</div>
 			)
 	}
 }
 
-export default Comanda;
+//export default Comanda;
+export default Lacomanda;

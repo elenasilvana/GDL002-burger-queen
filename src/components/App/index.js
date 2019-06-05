@@ -9,6 +9,8 @@ import SelectUserPage from '../SelectUser';
 import OrderPage from '../Order';
 import MenuPage from '../Menu';
 
+import { withFirebase } from '../Firebase';
+
 import * as ROUTES from '../../constants/routes';
 
 const App = () => (

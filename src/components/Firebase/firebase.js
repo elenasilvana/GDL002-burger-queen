@@ -1,4 +1,5 @@
 import app from 'firebase/app';
+import 'firebase/database'; 
 
  // Your web app's Firebase configuration
  	const config = {
@@ -14,7 +15,19 @@ import app from 'firebase/app';
   class Firebase {
   	constructor() {
   		app.initializeApp(config);
+
+  		// Get a reference to the database service
+		this.db = app.database();
   	}
+  	//Menu
+  	//aquí debería ir la función que saca la data 
+  	breakfastMenu = () => this.db.ref('desayuno');
+
+  	normalMenu = () => this.db.ref('normal');
+
+  	//donde se guardan las ordenes
+  	orders = () => this.db.ref('orders');
+  	
   }
 
   export default Firebase;
