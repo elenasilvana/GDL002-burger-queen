@@ -17,8 +17,17 @@ import 'firebase/database';
   		app.initializeApp(config);
 
   		// Get a reference to the database service
-		this.database = app.database();
+		this.db = app.database();
   	}
+  	//Menu
+  	//aquí debería ir la función que saca la data 
+  	breakfastMenu = () => this.db.ref('desayuno');
+
+  	normalMenu = () => this.db.ref('normal');
+
+  	//donde se guardan las ordenes
+  	orders = () => this.db.ref('orders');
+  	
   }
 
   export default Firebase;
