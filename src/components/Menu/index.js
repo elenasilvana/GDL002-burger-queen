@@ -58,8 +58,6 @@ class Menu extends Component {
 
 	
 
-	
-
 		render() {
 		//console.log(this.state.total);
 
@@ -118,32 +116,10 @@ class Comanda extends Component {
 	this.inputName = React.createRef();
 	}
 
-	/*
-	onChangeText = event => {
-		this.setState({ clientname: event.target.value });
-	};
-
-	onCreateMessage = event => {
-		this.props.firebase.orders().push({
-		clientname: this.state.clientname,
-	});
-
-	this.setState({ clientname: '' });
-	event.preventDefault();
-	};*/
-
-	/*
-	addName = () => {
-		let addname = this.inputName.current.value;
-		addname = addname.toString();
-
-		this.setState({clientname: addname}, console.log(this.state.clientname))
-
-	}*/
 
 	sendOrder = (e) => {
-		console.log(e);
-		console.log(this.props.order);
+		//console.log(e);
+		//console.log(this.props.order);
 
 		let addname = this.inputName.current.value;
 		addname = addname.toString();
@@ -153,12 +129,12 @@ class Comanda extends Component {
 		if(this.state.clientname){
 			this.props.firebase.orders().push({
 				clientname: this.state.clientname,
-				products: this.props.order
+				products: this.props.order,
+				total: this.props.total
 
 
 			});
 		}
-		//voy a agregar nombre
 
 	}
 
@@ -200,7 +176,7 @@ class Comanda extends Component {
 	}
 }
 
-
+//comanda with firebase
 export const Lacomanda = withFirebase(Comanda);
 
 export default Menu;
