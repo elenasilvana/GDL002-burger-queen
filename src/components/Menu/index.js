@@ -18,7 +18,17 @@ import ShowMenu from '../ShowMenu';
 
 //import firebase from '../Firebase/firebase';
 import { withFirebase } from '../Firebase';
+/* 
 
+ componentWillMount(){
+        //this.callAPI();
+        fetch("http://localhost:8080/order")
+            .then(res => res.json())
+            //.then()
+            .then(res => this.setState({apiResponse:res}));
+}
+
+*/
 
 class Menu extends Component {
 	arrOrden = []; 
@@ -30,6 +40,7 @@ class Menu extends Component {
 			normal: null,
 			//to save the order
 			order: this.arrOrden,
+			arrTry: [],
 			//to save the client name
 			//clientname: null,
 			total: 0,
@@ -57,7 +68,13 @@ class Menu extends Component {
 
 
 	
-
+	componentWillMount(){
+        //this.callAPI();
+        fetch("http://localhost:8080/order")
+            .then(res => res.json())
+            //.then()
+            .then(order => this.setState({ arrTry:order}, ()=>{console.log(order)}));
+}
 	
 
 		render() {
