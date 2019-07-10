@@ -153,6 +153,7 @@ class Comanda extends Component {
 		if(this.state.clientname){
 			this.props.firebase.orders().push({
 				clientname: this.state.clientname,
+				total: this.props.total,
 				products: this.props.order
 
 
