@@ -12,12 +12,9 @@ import Table from 'react-bootstrap/Table';
 //components
 import ShowMenu from '../ShowMenu';
 //import NavMenu from '../NavMenu';
-//import Comanda from '../Comanda';
-//import Lacomanda from '../Comanda';
-//import ClientName from '../ClientName';
+import Comanda from '../Comanda';
 
-//import firebase from '../Firebase/firebase';
-import { withFirebase } from '../Firebase';
+//import { withFirebase } from '../Firebase';
 /* 
 
  componentWillMount(){
@@ -30,8 +27,7 @@ import { withFirebase } from '../Firebase';
 
 */
 
-class Menu extends Component {
-	arrOrden = []; 
+class Menu extends Component { 
 
 	constructor() {
 		super();
@@ -39,10 +35,10 @@ class Menu extends Component {
 			breakfast: null,
 			normal: null,
 			//to save the order
-			order: this.arrOrden,
+			order: [],
 			arrTry: [],
 			//to save the client name
-			//clientname: null,
+			clientname: '',
 			total: 0,
 		}
 	}
@@ -65,6 +61,16 @@ class Menu extends Component {
 			total: this.state.total - price,
 		})
 	}
+	//comanda order
+	onSubmit = event => {
+		const { clientname } = this.state;
+		console.log('on submit event', clientname);
+		//event.preventDefault();
+	}
+	onChange = event => {
+		//console.log(event.target.name, event.target.value);	
+		this.setState({ [event.target.name]: event.target.value });
+	}
 
 
 	
@@ -72,13 +78,11 @@ class Menu extends Component {
         //this.callAPI();
         fetch("http://localhost:8080/order")
             .then(res => res.json())
-            //.then()
-            .then(order => this.setState({ arrTry:order}, ()=>{console.log(order)}));
+            .then((orderAsJson)=>{this.setState({arrTry : orderAsJson}, console.log(orderAsJson))});
 }
 	
 
 		render() {
-		//console.log(this.state.total);
 
 		return (
 			<container>
@@ -97,7 +101,14 @@ class Menu extends Component {
 							)) } 
 							
 						</div>
-						{this.state.order ? <Lacomanda order={this.state.order} total={this.state.total} onDelete={this.delete}/> : <Lacomanda /> }
+						{this.state.order ? <Comanda 
+							order={this.state.order} 
+							total={this.state.total}
+							clientname={this.state.clientname} 
+							onDelete={this.delete}
+							onSubmit={this.onSubmit}
+							onchange={this.onChange}
+						/> : <Comanda /> }
 						
 				  </div>
 
@@ -115,7 +126,14 @@ class Menu extends Component {
 								/>
 							)) } 
 						</div>
-						{this.state.order ? <Lacomanda order={this.state.order} total={this.state.total} onDelete={this.delete}/> : <Lacomanda /> }
+						{this.state.order ? <Comanda 
+						order={this.state.order} 
+						total={this.state.total} 
+						clientname={this.state.clientname}
+						onDelete={this.delete}
+						onSubmit={this.onSubmit}
+						onChange={this.onChange}
+						/> : <Comanda />}
 				  </div>
 				  </Tab>
 				</Tabs>	
@@ -124,7 +142,7 @@ class Menu extends Component {
 	}
 };
 
-
+/*
 class Comanda extends Component {
 	constructor(){
 		super();
@@ -134,29 +152,6 @@ class Comanda extends Component {
 
 	this.inputName = React.createRef();
 	}
-
-	/*
-	onChangeText = event => {
-		this.setState({ clientname: event.target.value });
-	};
-
-	onCreateMessage = event => {
-		this.props.firebase.orders().push({
-		clientname: this.state.clientname,
-	});
-
-	this.setState({ clientname: '' });
-	event.preventDefault();
-	};*/
-
-	/*
-	addName = () => {
-		let addname = this.inputName.current.value;
-		addname = addname.toString();
-
-		this.setState({clientname: addname}, console.log(this.state.clientname))
-
-	}*/
 
 	sendOrder = (e) => {
 		console.log(e);
@@ -217,8 +212,8 @@ class Comanda extends Component {
 			)
 	}
 }
+*/
 
-
-export const Lacomanda = withFirebase(Comanda);
+//export const Lacomanda = withFirebase(Comanda);
 
 export default Menu;
