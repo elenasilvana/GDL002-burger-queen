@@ -40,8 +40,7 @@ class Menu extends Component {
 			arrTry: [],
 			//to save the client name
 			clientname: '',
-			total: 0,
-			sendorder: {}
+			total: 0
 		}
 	}
 
@@ -66,16 +65,19 @@ class Menu extends Component {
 	//comanda order
 	onSubmit = event => {
 		const { clientname } = this.state;
-		console.log('on submit event', clientname);
+		const url = "http://localhost:8080/order";
+		//console.log('on submit event', clientname);
 
 		const sendOrder = {
 			"clientname": this.state.clientname,
 			"status": "pending",
 			"items": this.state.order
 		};
-		this.setState({
-			sendorder: sendOrder
-		})
+
+		//if(this.state.sendorder) {
+			this.fetchPost(url, sendOrder);
+			console.log(sendOrder);
+	//	}
 
 	}
 		
