@@ -1,60 +1,15 @@
 import React, {Component} from 'react';
 import Buttons from './Button';
 import Table from 'react-bootstrap/Table';
-//import { withFirebase } from './Firebase';
 
-//export const Lacomanda = withFirebase(Comanda);
-
-//aquí debería estar el componente de la comanda 
-
-//const INITIAL_STATE = {
-	//clientname: ''
-	//};
 
 class Comanda extends Component {
-	
-	/*
-	addName = () => {
-		let addname = this.inputName.current.value;
-		addname = addname.toString();
-
-		this.setState({clientname: addname}, console.log(this.state.clientname))
-
-	}
-
-	sendOrder = () => {
-
-		let addname = this.inputName.current.value;
-		addname = addname.toString();
-
-		this.setState({clientname: addname}, console.log(this.state.clientname))
-		//voy a agregar nombre
-		this.props.firebase.orders().push({
-			clientname: this.state.addname
-		});
-
-	}
-
-	*/
-	/*onSubmit = event => {
-		const { clientname } = this.state;
-		console.log('on submit event', clientname);
-		//event.preventDefault();
-	}*/
-	/*
-	onChange = event => {
-		//console.log(event.target.name, event.target.value);	
-		this.setState({ [event.target.name]: event.target.value });
-	};*/
-
-
 
 
 	render(){
 		const {
 			clientname
 		} = this.props.clientname;
-		//console.log('este es el nombre del cliente', this.state.clientname);
 
 		const isInvalid = clientname === '';
 
@@ -91,6 +46,7 @@ class Comanda extends Component {
 					onChange={this.props.onChange}
 					type="text"
 					placeholder="Inserte nombre del cliente"
+					ref="client_name"
 				/>
 				<button disabled={isInvalid} onClick={(e)=>{this.props.onSubmit()}}>
 					Send Order
@@ -100,5 +56,4 @@ class Comanda extends Component {
 	}
 }
 
-//export default Comanda;
 export default Comanda;
