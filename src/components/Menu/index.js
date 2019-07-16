@@ -110,17 +110,7 @@ class Menu extends Component {
         //this works
         fetch("http://localhost:8080/order")
             .then(res => res.json())
-						.then((orderAsJson)=>{this.setState({arrTry : orderAsJson}, console.log(orderAsJson))});
-/*
-		if(this.state.order){
-			fetchPost(url, data);
-		}
-	*/	
-		
-		
-	
-
-		
+						.then((orderAsJson)=>{this.setState({arrTry : orderAsJson}, console.log(orderAsJson))});		
 	}
 	
 
