@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 
 const FirebaseContext = React.createContext(null);
 //higher order component withFirebase
@@ -9,4 +9,4 @@ export const withFirebase = Component => props => (
 	</FirebaseContext.Consumer>
 	);
 
-export default FirebaseContext;
+export default FirebaseContext;*/

@@ -1,4 +1,4 @@
-import app from 'firebase/app';
+/*import app from 'firebase/app';
 import 'firebase/database'; 
 
  // Your web app's Firebase configuration
@@ -30,4 +30,4 @@ import 'firebase/database';
   	
   }
 
-  export default Firebase;
+  export default Firebase;*/
