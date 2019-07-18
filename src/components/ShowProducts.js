@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 
 class ShowProducts extends Component {
     render(){
-        console.log('aqui ls props', this.props.menu.products);
+        //console.log('aqui ls props', this.props.menu.products);
         //this.props.menu.products.forEach((product)=> {console.log(product)})
         //const data = [];
         if(this.props.menu.products){
@@ -11,7 +11,7 @@ class ShowProducts extends Component {
             //console.log(data);
            // data.forEach((product)=>{ console.log(product) });
         }
-        console.log(menuData);
+        //console.log(menuData);
         //this.props.menu.products ? console.log(data) : console.log('nada');
         return(
             <Table responsive striped bordered hover>
@@ -33,7 +33,7 @@ class ShowProducts extends Component {
                         <td>{product.price}</td>
                         <td>{product.category}</td>
                         </tr>
-                    )) : console.log('nada')
+                    )) : console.log('waiting for response')
                     
                 }
             </tbody>

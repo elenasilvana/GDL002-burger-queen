@@ -26,7 +26,7 @@ class Kitchen extends Component {
     render() {
        // console.log(this.state.orders);
         return (
-            <div>
+            <div className="kitchen-orders">
                 <h1>aquí Kitchen / show orders</h1>
 
                 {this.state.orders.orders ? this.state.orders.orders.map((order, index)=>(

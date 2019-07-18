@@ -14,7 +14,7 @@ class ShowOrders extends Component {
                     <Card.Subtitle className="mb-2 text-muted">{this.props.name}</Card.Subtitle>
                     <ListGroup>
                         {this.props.items.map((item, index)=>(          
-                            <ListGroup.Item variant="light">{index}{item.product}</ListGroup.Item>
+                            <ListGroup.Item variant="light">{item.product}</ListGroup.Item>
                             ))
                         }
                         <ListGroup.Item variant="dark">{this.props.status}</ListGroup.Item>
