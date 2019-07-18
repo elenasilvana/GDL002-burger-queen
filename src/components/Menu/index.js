@@ -12,16 +12,23 @@ import Table from 'react-bootstrap/Table';
 //components
 import ShowMenu from '../ShowMenu';
 //import NavMenu from '../NavMenu';
-//import Comanda from '../Comanda';
-//import Lacomanda from '../Comanda';
-//import ClientName from '../ClientName';
+import Comanda from '../Comanda';
+import { isPending, send } from 'q';
 
-//import firebase from '../Firebase/firebase';
-import { withFirebase } from '../Firebase';
+//import { withFirebase } from '../Firebase';
+/* 
 
+ componentWillMount(){
+        //this.callAPI();
+        fetch("http://localhost:8080/order")
+            .then(res => res.json())
+            //.then()
+            .then(res => this.setState({apiResponse:res}));
+}
 
-class Menu extends Component {
-	arrOrden = []; 
+*/
+
+class Menu extends Component { 
 
 	constructor() {
 		super();
@@ -29,10 +36,11 @@ class Menu extends Component {
 			breakfast: null,
 			normal: null,
 			//to save the order
-			order: this.arrOrden,
+			order: [],
+			arrTry: [],
 			//to save the client name
-			//clientname: null,
-			total: 0,
+			clientname: '',
+			total: 0
 		}
 	}
 
@@ -54,14 +62,60 @@ class Menu extends Component {
 			total: this.state.total - price,
 		})
 	}
+	//comanda order
+	onSubmit = event => {
+		const { clientname } = this.state;
+		const url = "http://localhost:8080/order";
+		//console.log('on submit event', clientname);
+
+		const sendOrder = {
+			"clientname": this.state.clientname,
+			"status": "pending",
+			"items": this.state.order
+		};
+
+		//if(this.state.sendorder) {
+			this.fetchPost(url, sendOrder);
+			console.log(sendOrder);
+	//	}
+
+	}
+		
+		//document.getElementById('client-name').reset();
+		//event.preventDefault();
+	
+
+	onChange = event => {
+		console.log(event.target.name, event.target.value);	
+		this.setState({ [event.target.name]: event.target.value });
+	}
+
+	fetchPost = (url, data) => {
+		fetch(url, {
+			method: 'POST',
+			body: JSON.stringify(data),
+			headers:{
+				'Content-Type': 'application/json'
+			}
+		}).then(res => res.json())
+		.then(response => console.log('aquí la respuesta', JSON.stringify(response)))
+		.catch(error => console.log('Error ', error)); 
+	}
 
 
 	
-
+	componentDidMount(fetchPost, data){
+		//const url = "http://localhost:8080/order";
+		
+        //this works
+        fetch("http://localhost:8080/order")
+            .then(res => res.json())
+						.then((orderAsJson)=>{this.setState({arrTry : orderAsJson}, console.log(orderAsJson))});		
+	}
 	
 
 		render() {
-		//console.log(this.state.total);
+			console.log(this.state.sendorder)
 
 		return (
 			<container>
@@ -80,7 +134,14 @@ class Menu extends Component {
 							)) } 
 							
 						</div>
-						{this.state.order ? <Lacomanda order={this.state.order} total={this.state.total} onDelete={this.delete}/> : <Lacomanda /> }
+						{this.state.order ? <Comanda 
+							order={this.state.order} 
+							total={this.state.total}
+							clientname={this.state.clientname} 
+							onDelete={this.delete}
+							onSubmit={this.onSubmit}
+							onChange={this.onChange}
+						/> : <Comanda /> }
 						
 				  </div>
 
@@ -98,7 +159,14 @@ class Menu extends Component {
 								/>
 							)) } 
 						</div>
-						{this.state.order ? <Lacomanda order={this.state.order} total={this.state.total} onDelete={this.delete}/> : <Lacomanda /> }
+						{this.state.order ? <Comanda 
+						order={this.state.order} 
+						total={this.state.total} 
+						clientname={this.state.clientname}
+						onDelete={this.delete}
+						onSubmit={this.onSubmit}
+						onChange={this.onChange}
+						/> : <Comanda />}
 				  </div>
 				  </Tab>
 				</Tabs>	
@@ -107,101 +175,5 @@ class Menu extends Component {
 	}
 };
 
-
-class Comanda extends Component {
-	constructor(){
-		super();
-		this.state={
-			clientname: "",
-		}
-
-	this.inputName = React.createRef();
-	}
-
-	/*
-	onChangeText = event => {
-		this.setState({ clientname: event.target.value });
-	};
-
-	onCreateMessage = event => {
-		this.props.firebase.orders().push({
-		clientname: this.state.clientname,
-	});
-
-	this.setState({ clientname: '' });
-	event.preventDefault();
-	};*/
-
-	/*
-	addName = () => {
-		let addname = this.inputName.current.value;
-		addname = addname.toString();
-
-		this.setState({clientname: addname}, console.log(this.state.clientname))
-
-	}*/
-
-	sendOrder = (e) => {
-		console.log(e);
-		console.log(this.props.order);
-
-		let addname = this.inputName.current.value;
-		addname = addname.toString();
-
-		this.setState({clientname: addname}) //console.log(this.state.clientname))
-
-		if(this.state.clientname){
-			this.props.firebase.orders().push({
-				clientname: this.state.clientname,
-				total: this.props.total,
-				products: this.props.order
-
-
-			});
-		}
-		//voy a agregar nombre
-
-	}
-
-
-
-	render(){
-		return(
-			<div className="comanda-container col-md-6">
-			<Table responsive striped bordered hover>
-			  <thead>
-			    <tr>
-			      <th>Comida</th>
-			      <th>Precio</th>
-			      <th>boton</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			  { this.props.order.map((line, index) => (
-				    <tr>
-				      <td>{line.product}</td>
-				      <td>${line.price}</td>
-				      <td><input type="button" value="Eliminar" onClick={() => {this.props.onDelete(line.price, line.product)}}/></td>
-				    </tr>
-
-			  	))}
-			  	<tr>
-			  		<td>Total</td>
-			  		<td>${this.props.total}</td>
-			  	</tr>
-
-			  </tbody>
-			</Table>
-				<textarea className="clientName" ref={this.inputName}>
-			  		introduce nombre del cliente
-				</textarea>
-				<Buttons action={(e)=>{this.sendOrder(e)}} name={'Enviar Orden'} />
-			</div>
-			)
-	}
-}
-
-
-export const Lacomanda = withFirebase(Comanda);
 
 export default Menu;

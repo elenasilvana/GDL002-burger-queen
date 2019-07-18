@@ -1,47 +1,18 @@
 import React, {Component} from 'react';
 import Buttons from './Button';
 import Table from 'react-bootstrap/Table';
-import { withFirebase } from './Firebase';
 
-export const Lacomanda = withFirebase(Comanda);
-
-//aquí debería estar el componente de la comanda 
 
 class Comanda extends Component {
-	constructor(){
-		super();
-		this.state={
-			clientname: "",
-		}
-
-	this.inputName = React.createRef();
-	}
-
-	/*
-	addName = () => {
-		let addname = this.inputName.current.value;
-		addname = addname.toString();
-
-		this.setState({clientname: addname}, console.log(this.state.clientname))
-
-	}*/
-
-	sendOrder = () => {
-
-		let addname = this.inputName.current.value;
-		addname = addname.toString();
-
-		this.setState({clientname: addname}, console.log(this.state.clientname))
-		//voy a agregar nombre
-		this.props.firebase.orders().push({
-			clientname: this.state.addname
-		});
-
-	}
-
 
 
 	render(){
+		const {
+			clientname
+		} = this.props.clientname;
+
+		const isInvalid = clientname === '';
+
 		return(
 			<div className="comanda-container col-md-6">
 			<Table responsive striped bordered hover>
@@ -69,14 +40,20 @@ class Comanda extends Component {
 
 			  </tbody>
 			</Table>
-				<textarea className="clientName" ref={this.inputName}>
-			  		introduce nombre del cliente
-				</textarea>
-				<Buttons action={()=>{this.sendOrder()}} name={'Enviar Orden'} />
+			<input
+					name="clientname"
+					value={clientname}
+					onChange={this.props.onChange}
+					type="text"
+					placeholder="Inserte nombre del cliente"
+					ref="client_name"
+				/>
+				<button disabled={isInvalid} onClick={(e)=>{this.props.onSubmit()}}>
+					Send Order
+				</button>
 			</div>
 			)
 	}
 }
 
-//export default Comanda;
-export default Lacomanda;
+export default Comanda;

@@ -20,6 +20,12 @@ const Navigation = () => (
 			<li>
 			<Link to={ROUTES.MENU}>Menu</Link>
 			</li>
+			<li>
+			<Link to={ROUTES.KITCHEN}>Menu</Link>
+			</li>
+			<li>
+			<Link to={ROUTES.ADMIN}>Menu</Link>
+			</li>
 		</ul>
 	</nav>
 </div>
