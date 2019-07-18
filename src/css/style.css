@@ -38,6 +38,23 @@ code{
 
 }
 
+.landing-Page{
+	display:flex;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+}
+
+.landing-buttons{
+	display:flex;
+	flex-direction: column;
+	align-content: center;
+
+}
+.lnding-btn{
+	margin: 1em;
+}
+
 .comanda-container {
 	background-color: #ffff;
 	justify-content: space-around;
@@ -46,3 +63,4 @@ code{
 .kitchen-orders {
 	display: flex;
 }
+
