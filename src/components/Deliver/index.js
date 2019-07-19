@@ -5,9 +5,6 @@ import ShowOrders from '../ShowOrders';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 class Deliver extends Component {
     constructor() {
@@ -19,7 +16,7 @@ class Deliver extends Component {
 
     fetchApi = (url, data, meth) => {
         fetch(url, {
-            // method: 'POST',
+
             method: meth,
             body: JSON.stringify(data),
             headers: {
@@ -40,12 +37,10 @@ class Deliver extends Component {
 
 
     render(){
-        //console.log(this.state.orders.orders);
         let toDeliver;
         let delivered;
-        // onKitchen = this.state.orders.orders.filter((order) => { return ((order.status === 'pending') || (order.status === 'preparing')) });
+       
         if(this.state.orders.orders){
-            //this.state.orders.orders.forEach((order)=>{console.log(order)});
             toDeliver = this.state.orders.orders.filter((order)=>{return (order.status === 'ready')});
             console.log(toDeliver);
             delivered = this.state.orders.orders.filter((order)=>{return (order.status === 'delivered')});

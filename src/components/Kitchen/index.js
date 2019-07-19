@@ -20,7 +20,6 @@ class Kitchen extends Component {
 
     fetchApi = (url, data, meth) => {
         fetch(url, {
-            // method: 'POST',
             method: meth,
             body: JSON.stringify(data),
             headers: {
@@ -66,7 +65,6 @@ class Kitchen extends Component {
             onKitchen = this.state.orders.orders.filter((order) => { return ((order.status === 'pending') || (order.status === 'preparing')) });
             orderReady = this.state.orders.orders.filter((order) => { return (order.status === 'ready') });
         };
-        //console.log(this.state.orders.orders);
 
         return (
             <container>

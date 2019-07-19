@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import Button from 'react-bootstrap/Button';
-//import Buttons from './Button';
 
 class ShowMenu extends Component {
 
 render(){
-		//console.log('aqui los props', this.props);
 
 		return (
 			<div className="cardFood-container">
