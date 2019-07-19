@@ -24,7 +24,8 @@ const Order = (props) => {
 					<div className="order-page-content">
 						<div className="buttons-order">
 							<Link className="btn btn-outline-secondary btn-lg" to={ROUTES.MENU}> Tomar Orden </Link>
-							<button disabled={true} className="btn btn-outline-secondary btn-lg"> Entregar Orden </button>
+							<Link className="btn btn-outline-secondary btn-lg" to={ROUTES.DELIVER}>Entregar Orden</Link>
+							
 						</div>
 					</div>
 				</Col>
