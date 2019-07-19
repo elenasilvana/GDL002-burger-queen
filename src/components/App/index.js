@@ -10,6 +10,8 @@ import OrderPage from '../Order';
 import MenuPage from '../Menu';
 import AdminPage from '../Admin';
 import KitchenPage from '../Kitchen';
+import DeliverPage from '../Deliver';
+
 
 //import { withFirebase } from '../Firebase';
 
@@ -26,6 +28,7 @@ const App = () => (
 		<Route path={ROUTES.MENU} component={MenuPage} />
 		<Route path={ROUTES.KITCHEN} component={KitchenPage} />
 		<Route path={ROUTES.ADMIN} component={AdminPage} />
+		<Route path={ROUTES.DELIVER} component={DeliverPage} />
 	</Switch>
 	</HashRouter>
 
