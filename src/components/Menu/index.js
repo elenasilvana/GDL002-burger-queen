@@ -6,27 +6,10 @@ import {BreakfastMenu} from '../../data/breakfastmenu';
 //bootstrap style imports
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
-//comanda
-import Buttons from '../Button';
-import Table from 'react-bootstrap/Table';
 //components
 import ShowMenu from '../ShowMenu';
-//import NavMenu from '../NavMenu';
 import Comanda from '../Comanda';
-import { isPending, send } from 'q';
-
-//import { withFirebase } from '../Firebase';
-/* 
-
- componentWillMount(){
-        //this.callAPI();
-        fetch("http://localhost:8080/order")
-            .then(res => res.json())
-            //.then()
-            .then(res => this.setState({apiResponse:res}));
-}
-
-*/
+import NavBar from '../NavBar';
 
 class Menu extends Component { 
 
@@ -119,6 +102,11 @@ class Menu extends Component {
 
 		return (
 			<container>
+				<div className="row">
+					<div className="col">
+						<NavBar />
+					</div>
+				</div>
 				<Tabs defaultActiveKey="normalMenu" id="uncontrolled-tab-example">
 				  <Tab eventKey="breakfastMenu" title="Desayuno">
 				  <div className= "row">

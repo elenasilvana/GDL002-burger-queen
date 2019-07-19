@@ -29,7 +29,11 @@ class Comanda extends Component {
 				    <tr>
 				      <td>{line.product}</td>
 				      <td>${line.price}</td>
-				      <td><input type="button" value="Eliminar" onClick={() => {this.props.onDelete(line.price, line.product)}}/></td>
+							<td><input 
+							type="button" 
+							value="Eliminar" 
+							onClick={() => {this.props.onDelete(line.price, line.product)}}/>
+							</td>
 				    </tr>
 
 			  	))}
@@ -37,7 +41,6 @@ class Comanda extends Component {
 			  		<td>Total</td>
 			  		<td>${this.props.total}</td>
 			  	</tr>
-
 			  </tbody>
 			</Table>
 			<input

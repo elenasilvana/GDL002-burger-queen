@@ -7,12 +7,18 @@ import * as ROUTES from '../../constants/routes';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import NavBar from '../NavBar';
 
 
 const Order = (props) => {
 
 	return (
 		<Container>
+			<Row>
+				<Col>
+					<NavBar />
+				</Col>
+			</Row>
 			<Row>
 				<Col>
 					<div className="order-page-content">

@@ -3,9 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import AddProductToMenu from '../AddProductToMenu';
-import Table from 'react-bootstrap/Table';
-
 import ShowProducts from '../ShowProducts';
+import NavBar from '../NavBar';
 
 const INITIAL_STATE = {
     item: '',
@@ -82,6 +81,11 @@ class Admin extends Component {
         //console.log(this.state.menu);
         return (
             <Container>
+                <Row>
+                    <Col>
+                        <NavBar />
+                    </Col>
+                </Row>
                 <Row>
                     <Col>
                         {this.state.menu ? <ShowProducts

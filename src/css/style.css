@@ -39,6 +39,8 @@ code{
 }
 
 .landing-Page{
+	margin-top: 20%;
+	height: 100vh;
 	display:flex;
 	flex-direction: column;
 	align-content: center;
@@ -46,6 +48,7 @@ code{
 }
 
 .landing-buttons{
+	margin-top: 20%;
 	display:flex;
 	flex-direction: column;
 	align-content: center;
