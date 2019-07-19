@@ -38,11 +38,62 @@ code{
 
 }
 
+.landing-Page{
+	margin-top: 20%;
+	height: 100vh;
+	display:flex;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+}
+
+.landing-buttons{
+	margin-top: 20%;
+	display:flex;
+	flex-direction: column;
+	align-content: center;
+
+}
+.lnding-btn{
+	margin: 1em;
+}
+
+.order-page-content{
+	height: 100vh;
+	display:flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+
+}
+
+.buttons-order{
+	display:flex;
+	justify-content: center;
+	
+
+
+
+}
+
 .comanda-container {
 	background-color: #ffff;
 	justify-content: space-around;
 }
 
+/*Admin component */
+.addproduct-form{
+	height: 100vh;
+	display:flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+
+	
+
+}
 .kitchen-orders {
 	display: flex;
+	flex-direction: column;
 }
+

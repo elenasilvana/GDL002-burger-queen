@@ -21,10 +21,10 @@ const Navigation = () => (
 			<Link to={ROUTES.MENU}>Menu</Link>
 			</li>
 			<li>
-			<Link to={ROUTES.KITCHEN}>Menu</Link>
+			<Link to={ROUTES.KITCHEN}>Kitchen</Link>
 			</li>
 			<li>
-			<Link to={ROUTES.ADMIN}>Menu</Link>
+			<Link to={ROUTES.ADMIN}>Admin</Link>
 			</li>
 		</ul>
 	</nav>

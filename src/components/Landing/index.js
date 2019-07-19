@@ -3,26 +3,34 @@ import LogoBq from '../LogoBq';
 import NavigationButton from '../NavigationButton';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
-import Button from 'react-bootstrap/Button';
-import SignUpForm from '../SignUpForm';
-
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import NavBar from '../NavBar';
 
 
 const Landing = () => (
-
-	<div>
-		<div>
-			<LogoBq />
-		</div>
-		<div>
-			<Link className="btn btn-outline-secondary btn-lg" to={ROUTES.ORDER}>Mesero</Link>
-			<Link className="btn btn-outline-secondary btn-lg" to={ROUTES.KITCHEN}>Cocina</Link>
-			<Link className="btn btn-outline-secondary btn-lg" to={ROUTES.ADMIN}>Administrador</Link>
-
-		</div>
-
-	</div>
+	<Container>
+		<Row>
+			<Col>
+				<NavBar />
+			</Col>
+		</Row>
+		<Row>
+			<Col sm>
+				<div className="landing-Page">
+				<LogoBq />
+				</div>	
+			</Col>
+			<Col sm>
+			<div className="landing-buttons">
+					<Link className="btn btn-outline-secondary btn-lg lnding-btn" to={ROUTES.ORDER}>Mesero</Link>
+					<Link className="btn btn-outline-secondary btn-lg lnding-btn" to={ROUTES.KITCHEN}>Cocina</Link>
+					<Link className="btn btn-outline-secondary btn-lg lnding-btn" to={ROUTES.ADMIN}>Administrador</Link>
+				</div>
+			</Col>
+		</Row>
+	</Container>
 );
 
 
