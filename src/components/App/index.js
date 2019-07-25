@@ -1,5 +1,4 @@
 import React from 'react';
-//import { BrowserRouter as Router, Route, } from 'react-router-dom';
 import { HashRouter, Route, Switch } from "react-router-dom";
 
 
@@ -11,9 +10,6 @@ import MenuPage from '../Menu';
 import AdminPage from '../Admin';
 import KitchenPage from '../Kitchen';
 import DeliverPage from '../Deliver';
-
-
-//import { withFirebase } from '../Firebase';
 
 import * as ROUTES from '../../constants/routes';
 

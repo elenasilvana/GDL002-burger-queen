@@ -1,8 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 
-//<Button href="#">Link</Button>
-// <Button variant="outline-secondary">Secondary</Button>
 
 const NavigationButton = (props) => {
 

@@ -20,7 +20,6 @@ class Kitchen extends Component {
 
     fetchApi = (url, data, meth) => {
         fetch(url, {
-            // method: 'POST',
             method: meth,
             body: JSON.stringify(data),
             headers: {
@@ -32,7 +31,7 @@ class Kitchen extends Component {
     }
 
     onChangeStatus = (orderId, status) => {
-        const url = `http://localhost:8080/order/${orderId}`
+        const url = `https://backbq.herokuapp.com/order/${orderId}`
 
         let newStatus;
         if (status === 'pending') {
@@ -52,7 +51,7 @@ class Kitchen extends Component {
 
 
     componentDidMount() {
-        const url = "http://localhost:8080/order";
+        const url = "https://backbq.herokuapp.com/order";
 
         fetch(url)
             .then(res => res.json())
@@ -66,7 +65,6 @@ class Kitchen extends Component {
             onKitchen = this.state.orders.orders.filter((order) => { return ((order.status === 'pending') || (order.status === 'preparing')) });
             orderReady = this.state.orders.orders.filter((order) => { return (order.status === 'ready') });
         };
-        //console.log(this.state.orders.orders);
 
         return (
             <container>

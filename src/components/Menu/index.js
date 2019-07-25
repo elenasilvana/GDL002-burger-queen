@@ -48,8 +48,7 @@ class Menu extends Component {
 	//comanda order
 	onSubmit = event => {
 		const { clientname } = this.state;
-		const url = "http://localhost:8080/order";
-		//console.log('on submit event', clientname);
+		const url = "https://backbq.herokuapp.com/order";
 
 		const sendOrder = {
 			"clientname": this.state.clientname,
@@ -57,16 +56,10 @@ class Menu extends Component {
 			"items": this.state.order
 		};
 
-		//if(this.state.sendorder) {
 			this.fetchPost(url, sendOrder);
 			console.log(sendOrder);
-	//	}
 
 	}
-		
-		//document.getElementById('client-name').reset();
-		//event.preventDefault();
-	
 
 	onChange = event => {
 		console.log(event.target.name, event.target.value);	
@@ -87,11 +80,9 @@ class Menu extends Component {
 
 
 	
-	componentDidMount(fetchPost, data){
-		//const url = "http://localhost:8080/order";
-		
-        //this works
-        fetch("http://localhost:8080/order")
+	componentDidMount(){
+
+        fetch("https://backbq.herokuapp.com/order")
             .then(res => res.json())
 						.then((orderAsJson)=>{this.setState({arrTry : orderAsJson}, console.log(orderAsJson))});		
 	}

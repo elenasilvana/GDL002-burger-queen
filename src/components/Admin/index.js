@@ -19,7 +19,6 @@ class Admin extends Component {
     constructor() {
         super();
         this.state = {
-            //...INITIAL_STATE,
             menu: [],
         }
     }
@@ -27,7 +26,6 @@ class Admin extends Component {
 
     fetchApi = (url, data, meth) => {
         fetch(url, {
-            // method: 'POST',
             method: meth,
             body: JSON.stringify(data),
             headers: {
@@ -40,12 +38,9 @@ class Admin extends Component {
 
     onSubmit = event => {
         const { item, category, img } = this.state;
-        //console.log(item, price, category, img);
         const toNumber = Number(this.state.price);
-        const url = 'http://localhost:8080/product';
-        //console.log(toNumber);
+        const url = 'https://backbq.herokuapp.com/product';
 
-        //expected properties order from DB: category, img, price, product
         const addProductToDB = {
             "category": category,
             "img": img,
@@ -55,12 +50,7 @@ class Admin extends Component {
 
         this.fetchApi(url, addProductToDB, 'POST');
         console.log(addProductToDB);
-        // this.setState({ ...INITIAL_STATE
-        // item: '',
-        // price: '',
-        // category: '',
-        // img: ''
-        //});
+
         event.preventDefault();
     }
     onChange = event => {
@@ -71,14 +61,12 @@ class Admin extends Component {
 
     componentDidMount() {
 
-        //this works
-        fetch("http://localhost:8080/product")
+        fetch("https://backbq.herokuapp.com/product")
             .then(res => res.json())
             .then((orderAsJson) => { this.setState({ menu: orderAsJson }, console.log(orderAsJson)) });
     }
 
     render() {
-        //console.log(this.state.menu);
         return (
             <Container>
                 <Row>
@@ -108,92 +96,6 @@ class Admin extends Component {
     }
 }
 
-/*
-const INITIAL_STATE = {
-	item: '',
-	price: '',
-	category: '',
-	img: '',
-	error: null,
-	};
-class AddProductToMenu extends Component {
-    constructor(){
-        super();
-        this.state = { ...INITIAL_STATE }
-    }
-    onSubmit = event => {
-        const { item, category, img } = this.state;
-        //console.log(item, price, category, img);
-        const toNumber = Number(this.state.price);
-        //console.log(toNumber);
 
-        const addProductToDB = {
-            "item": item,
-            "price": toNumber,
-            "category": category,
-            "img": img
-        };
-
-        console.log(addProductToDB);
-        event.preventDefault();
-        this.setState({...INITIAL_STATE});
-    }
-    onChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
-    }
-
-    render(){
-        const {
-            item, 
-            price, 
-            category,
-            img
-        } = this.state;
-
-        const isInvalid = 
-        item === '' || 
-        price <= 0 ||
-        category === '' ||
-        img === '';
-
-        return (
-            <form onSubmit={this.onSubmit}>
-                <input
-                    name="item"
-                    value={item}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Nombre del producto"
-                />
-                <input
-                    name="price"
-                    value={price}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Ingresa el precio"
-                />
-                <input 
-                    name="category"
-                    value={category}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Ingresa categoría"
-                />
-                <input 
-                    name="img"
-                    value={img}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Ingresa url de imagen"
-                />
-                <button disabled={isInvalid} type="submit">
-                    Agregar
-                </button>
-            </form>
-
-        );
-    }
-
-}*/
 
 export default Admin;

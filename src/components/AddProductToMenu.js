@@ -10,31 +10,7 @@ const INITIAL_STATE = {
 
 
 class AddProductToMenu extends Component {
-    /*
-    constructor(){
-        super();
-        this.state = { ...INITIAL_STATE }
-    }
-    onSubmit = event => {
-        const { item, category, img } = this.state;
-        //console.log(item, price, category, img);
-        const toNumber = Number(this.state.price);
-        //console.log(toNumber);
-
-        const addProductToDB = {
-            "item": item,
-            "price": toNumber,
-            "category": category,
-            "img": img
-        };
-
-        console.log(addProductToDB);
-        event.preventDefault();
-    }
-    onChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
-    }
-    */
+ 
     render(){
         const {
             item, 
