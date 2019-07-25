@@ -48,7 +48,7 @@ class Menu extends Component {
 	//comanda order
 	onSubmit = event => {
 		const { clientname } = this.state;
-		const url = "http://localhost:8080/order";
+		const url = "https://backbq.herokuapp.com/order";
 
 		const sendOrder = {
 			"clientname": this.state.clientname,
@@ -80,9 +80,9 @@ class Menu extends Component {
 
 
 	
-	componentDidMount(fetchPost, data){
+	componentDidMount(){
 
-        fetch("http://localhost:8080/order")
+        fetch("https://backbq.herokuapp.com/order")
             .then(res => res.json())
 						.then((orderAsJson)=>{this.setState({arrTry : orderAsJson}, console.log(orderAsJson))});		
 	}

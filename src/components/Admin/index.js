@@ -39,7 +39,7 @@ class Admin extends Component {
     onSubmit = event => {
         const { item, category, img } = this.state;
         const toNumber = Number(this.state.price);
-        const url = 'http://localhost:8080/product';
+        const url = 'https://backbq.herokuapp.com/product';
 
         const addProductToDB = {
             "category": category,
@@ -61,7 +61,7 @@ class Admin extends Component {
 
     componentDidMount() {
 
-        fetch("http://localhost:8080/product")
+        fetch("https://backbq.herokuapp.com/product")
             .then(res => res.json())
             .then((orderAsJson) => { this.setState({ menu: orderAsJson }, console.log(orderAsJson)) });
     }

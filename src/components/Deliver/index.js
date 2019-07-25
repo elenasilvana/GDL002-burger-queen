@@ -11,6 +11,8 @@ class Deliver extends Component {
         super();
         this.state = {
             orders: [],
+            toDeliver: [],
+            delivered: []
         }
     }
 
@@ -28,7 +30,7 @@ class Deliver extends Component {
     }
 
     componentDidMount() {
-        const url = "http://localhost:8080/order";
+        const url = "https://backbq.herokuapp.com/order";
 
         fetch(url)
             .then(res => res.json())
@@ -36,9 +38,14 @@ class Deliver extends Component {
     }
 
 
-    render(){
-        let toDeliver;
-        let delivered;
+    render(){ /*
+        quiza deberia llenar estas variables desde el componente padre
+        const {
+        toDeliver, 
+        delivered
+    } = this.state*/
+    let toDeliver;
+    let delivered;
        
         if(this.state.orders.orders){
             toDeliver = this.state.orders.orders.filter((order)=>{return (order.status === 'ready')});
@@ -67,12 +74,9 @@ class Deliver extends Component {
                                                 status={order.status}
                                                 onChangeStatus={this.onChangeStatus}
                                             />
-                                        )) : console.log('waiting for orders response')}
-
+                                        )) : console.log('waiting for orders response')/*implementar animacion de espera*/}
                                     </div>
-
                                 </div>
-
                             </Tab>
                             <Tab eventKey="DeliveredOrders" title="Entregadas">
                                 <div className="row">
@@ -83,7 +87,7 @@ class Deliver extends Component {
                                                 name={order.clientname}
                                                 items={order.items}
                                                 status={order.status}
-                                        onChangeStatus={this.onChangeStatus}
+                                                onChangeStatus={this.onChangeStatus}
                                             />
                                         )) : console.log('waiting for orders response')}
 
@@ -93,7 +97,6 @@ class Deliver extends Component {
                         </Tabs>
                 </div>
             </div>
-
         </container>
         )
     }
